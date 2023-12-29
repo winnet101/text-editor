@@ -1,0 +1,10 @@
+.listItem {
+  background-color: pink;
+  border-radius: 2px;
+  transition:
+    background-color 0.2s;
+}
+
+.listItem:focus {
+  background-color: violet;
+}
