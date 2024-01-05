@@ -1,22 +1,42 @@
 import styles from "./ListItem.module.css";
-import {ListItemType} from "../List.tsx"
+import { ChangeEvent, KeyboardEvent, FocusEvent, SyntheticEvent, forwardRef, LegacyRef} from "react";
 
-export default function ListItem({
+type handleEvent<T extends SyntheticEvent> = (
+  arg0: T,
+  arg1: number ) => void;
+
+interface ListItemType {
+  index: number
+  value: string,
+  handleChange: handleEvent<ChangeEvent<HTMLInputElement>>
+  handleKeyDown: handleEvent<KeyboardEvent<HTMLInputElement>>
+  handleBlur: handleEvent<FocusEvent<HTMLInputElement>>
+}
+
+export default forwardRef(function ListItem({
   index,
   value,
-  handleChange
-}: ListItemType) {
-  // const [text, setText] = useLocalStorage(index.toString(), "");
+  handleChange,
+  handleKeyDown,
+  handleBlur,
+}: ListItemType, ref:LegacyRef<HTMLInputElement>) {
 
-  return(
-    <li>
-      <input 
-        className={styles.listItem}
-        value={value}
-        onChange={(ev) => {
-          handleChange(ev, index)
-        }}
-      />
-    </li>
+  return (
+    <input
+      className={styles.listItem}
+      value={value}
+      ref={ref}
+      maxLength={50}
+      onChange={(ev) => {
+        handleChange(ev, index)
+      }}
+      onKeyDown={(ev) => {
+        handleKeyDown(ev, index)
+      }}
+      onBlur={(ev) => {
+        handleBlur(ev, index);
+      }}
+
+    />
   )
-}
+})

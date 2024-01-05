@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
 import List from "./components/List/List";
 
 export default function App() {
-
-  const [pressed, setPressed] = useState(false);
-
-  return(
+  return (
     <>
       <h1>
         yeah
@@ -13,23 +9,18 @@ export default function App() {
       <div>
         this is a thing now
       </div>
-      <List />
-      <code>{JSON.stringify(localStorage)}</code>
+      <List index={0} />
+      <List index={1} />
       <button
         onClick={() => {
           localStorage.clear();
-          setPressed(true); 
         }}
       >
         <code>
-          {
-          pressed
-          ? "deleted!" 
-          : "delete localstorage"
-          }
+          clear localstorage
         </code>
       </button>
     </>
-    
+
   )
 }

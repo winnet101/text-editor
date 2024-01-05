@@ -22,6 +22,10 @@ h1, h2, h3, h4, h5, h6 {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin: 0;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -32,6 +36,7 @@ a:hover {
 }
 
 input {
+  background-color: inherit;
   outline: none;
   border: none;
   font-family: var(--mainfont), sans-serif;

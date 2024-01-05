@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Poppins:wght@400;700;900&family=Spline+Sans&display=swap');
+
+.list {
+  background-color: plum;
+  border-radius: 5px;
+  padding: 1rem 40px;
+  width: 300px;
+  margin: 1rem;;
+}
